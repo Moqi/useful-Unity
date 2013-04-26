@@ -20,8 +20,7 @@ public class AnimatedTexture : MonoBehaviour
     private float timeDiff;
     private Vector3 startPos;
 
-    public enum Animation
-    {
+    public enum Animation {
         ANIMATION1 = 0,
         ANIMATION2,
         ANIMATION3,
@@ -29,49 +28,38 @@ public class AnimatedTexture : MonoBehaviour
     }
     public Animation currentAnimation = Animation.ANIMATION1;
 
-    void Awake()
-    {
+    void Awake() {
         currentFrame = 1;
         startPos = transform.position;
     }
 
-    void Start()
-    {
+    void Start() {
         SetTexture();
         startTime = Time.time;
     }
 
-    void SetTexture()
-    {
-        switch (currentAnimation)
-        {
+    void SetTexture() {
+        switch (currentAnimation) {
             case Animation.ANIMATION1:
 				renderer.material.mainTexture = animation1Textures[currentFrame - 1];
-                //guiTexture.texture = animation1Textures[currentFrame - 1];
                 break;
             case Animation.ANIMATION2:
 				renderer.material.mainTexture = animation2Textures[currentFrame - 1];
-                //guiTexture.texture = animation2Textures[currentFrame - 1];
                 break;
             case Animation.ANIMATION3:
 				renderer.material.mainTexture = animation3Textures[currentFrame - 1];
-                //guiTexture.texture = animation3Textures[currentFrame - 1];
                 break;
 		case Animation.ANIMATION4:
 				renderer.material.mainTexture = animation4Textures[currentFrame - 1];
-                //guiTexture.texture = animation3Textures[currentFrame - 1];
                 break;}
     }
 
-    void Update()
-    {
+    void Update() {
         timeDiff = Time.time - startTime;
 
-        switch (currentAnimation)
-        {
+        switch (currentAnimation) {
             case Animation.ANIMATION1:
-                if (timeDiff >= animation1Speed)
-                {
+                if (timeDiff >= animation1Speed) {
                     currentFrame++;
                     if (currentFrame > animation1Textures.Length)
                         currentFrame = 1;
@@ -80,8 +68,7 @@ public class AnimatedTexture : MonoBehaviour
                 }
                 break;
             case Animation.ANIMATION2:
-                if (timeDiff >= animation2Speed)
-                {
+                if (timeDiff >= animation2Speed) {
                     currentFrame++;
                     if (currentFrame > animation2Textures.Length)
                         currentFrame = 1;
@@ -90,8 +77,7 @@ public class AnimatedTexture : MonoBehaviour
                 }
                 break;
             case Animation.ANIMATION3:
-                if (timeDiff >= animation3Speed)
-                {
+                if (timeDiff >= animation3Speed) {
                     currentFrame++;
                     if (currentFrame > animation3Textures.Length)
                         currentFrame = 1;
@@ -100,8 +86,7 @@ public class AnimatedTexture : MonoBehaviour
                 }
                 break;
 			case Animation.ANIMATION4:
-                if (timeDiff >= animation4Speed)
-                {
+                if (timeDiff >= animation4Speed) {
                     currentFrame++;
                     if (currentFrame > animation4Textures.Length)
                         currentFrame = 1;
@@ -112,28 +97,23 @@ public class AnimatedTexture : MonoBehaviour
         }
     }
 
-    public void Reset()
-    {
+    public void Reset() {
         currentFrame = 1;
     }
 
-    public void StartAnimation()
-    {
+    public void StartAnimation() {
         bPlaying = true;
     }
 
-    public void StopAnimation()
-    {
+    public void StopAnimation() {
         bPlaying = false;
     }
 
-    public void SetFrame(int frame)
-    {
+    public void SetFrame(int frame) {
         currentFrame = frame;
     }
 
-    public void SetAnimation(Animation animation)
-    {
+    public void SetAnimation(Animation animation) {
         currentAnimation = animation;
     }
 }
