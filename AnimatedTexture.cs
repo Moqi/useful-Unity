@@ -41,7 +41,7 @@ public class AnimatedTexture : MonoBehaviour
     void SetTexture() {
         switch (currentAnimation) {
             case Animation.ANIMATION1:
-				renderer.material.mainTexture = animation1Textures[currentFrame - 1];
+			renderer.material.mainTexture = animation1Textures[currentFrame - 1];
                 break;
             case Animation.ANIMATION2:
 				renderer.material.mainTexture = animation2Textures[currentFrame - 1];
